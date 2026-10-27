@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Qindeel: Quran &amp; Azkar — the Mushaf, prayer times and Qibla in one calm app</title>
+  <meta name="description" content="Qindeel (قنديل) is a calm daily companion for Muslims: the complete Madina Mushaf, morning and evening azkar, the full Hisn al-Muslim, offline prayer times for 262 cities, Qibla, tasbeeh and a verse for your lock screen. No account. No ads.">
+  <meta name="theme-color" content="#131209">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Qindeel: Quran &amp; Azkar, without the noise">
+  <meta property="og:description" content="The Quran, azkar, prayer times, Qibla, tasbeeh and a daily verse. Works offline, needs no account, and shows no ads.">
+  <meta property="og:image" content="https://amrarnous.github.io/qindeel/assets/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Qindeel: Quran &amp; Azkar, without the noise">
+  <meta name="twitter:description" content="A calm daily companion for Muslims. Offline, private, in Arabic and English.">
+  <meta name="twitter:image" content="https://amrarnous.github.io/qindeel/assets/og.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="assets/hero/poster.webp" fetchpriority="high">
+  <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is Qindeel free?","acceptedAnswer":{"@type":"Answer","text":"Yes. Qindeel is free to download and every worship feature is free. All eight verse themes are included."}},{"@type":"Question","name":"Does Qindeel show ads?","acceptedAnswer":{"@type":"Answer","text":"No. Qindeel has no ads and no ad tracking."}},{"@type":"Question","name":"Does it work without internet?","acceptedAnswer":{"@type":"Answer","text":"Yes. Azkar, the Hisn al-Muslim library, verses, prayer times for 262 cities and the Qibla compass are bundled inside the app, so they work offline."}},{"@type":"Question","name":"Do I need to create an account?","acceptedAnswer":{"@type":"Answer","text":"No. There is no sign up and no login. Your streak, counts, bookmarks and settings are saved on your phone."}},{"@type":"Question","name":"What happens to my location?","acceptedAnswer":{"@type":"Answer","text":"Qindeel uses your approximate location only to calculate prayer times and the Qibla direction. It is stored on your device and never linked to you."}},{"@type":"Question","name":"Which prayer calculation methods are supported?","acceptedAnswer":{"@type":"Answer","text":"Qindeel picks the common method for your country automatically using the adhan library. You can change the method and choose a Shafi’i or Hanafi Asr time in settings."}},{"@type":"Question","name":"Is the Arabic fully voweled?","acceptedAnswer":{"@type":"Answer","text":"Yes. Every dhikr is fully voweled, and you can read it in Naskh, Amiri or Scheherazade New at the size you prefer, with the English meaning underneath."}},{"@type":"Question","name":"Does it include the full Quran?","acceptedAnswer":{"@type":"Answer","text":"Yes. The complete Madina Mushaf is included as 604 real text pages with a Surah and Juz index, bookmarks and a reading position that is remembered for you."}},{"@type":"Question","name":"When and where does Qindeel launch?","acceptedAnswer":{"@type":"Answer","text":"Qindeel is coming to iPhone and Android. Join the launch list and we will send you a single email with the store links on launch day."}}]}</script>
+</head>
+<body class="bg-ink text-cream font-sans antialiased">
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-brass focus:px-3 focus:py-2 focus:text-sm focus:font-semibold focus:text-ink">Skip to content</a>
+
+  <!-- Fluid island nav -->
+  <header class="fixed inset-x-0 top-0 z-50 flex justify-center px-4">
+    <nav aria-label="Primary" class="mt-6 mx-auto w-max rounded-full border border-white/10 bg-ink/70 px-3 py-2 backdrop-blur-xl">
+      <div class="flex items-center gap-2">
+        <a href="#top" class="btn-ghost flex items-center gap-2 rounded-full px-3 py-2" aria-label="Qindeel home">
+          <img src="assets/favicon.png" alt="" width="24" height="24" class="h-6 w-6 rounded-md">
+          <span class="text-sm font-semibold">Qindeel</span>
+        </a>
+        <ul class="hidden items-center gap-1 md:flex">
+          <li><a data-spy="features" href="#features" class="nav-link">Features</a></li>
+          <li><a data-spy="how" href="#how" class="nav-link">How it works</a></li>
+          <li><a data-spy="sources" href="#sources" class="nav-link">Sources</a></li>
+          <li><a data-spy="faq" href="#faq" class="nav-link">FAQ</a></li>
+        </ul>
+        <a href="#join" class="btn-primary hidden text-sm sm:inline-flex">Join the launch list</a>
+        <button id="menu-btn" type="button" class="btn-ghost relative h-10 w-10 rounded-full md:hidden" aria-expanded="false" aria-controls="menu" aria-label="Open menu">
+          <span class="burger-line -translate-y-1"></span>
+          <span class="burger-line translate-y-1"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <div id="menu" class="menu pointer-events-none fixed inset-0 z-40 flex flex-col justify-center bg-black/80 px-6 opacity-0 backdrop-blur-3xl transition-all duration-700 ease-fluid md:hidden" aria-hidden="true">
+    <ul class="flex flex-col gap-4">
+      <li class="overflow-hidden"><a href="#features" class="menu-link delay-100">Features</a></li>
+      <li class="overflow-hidden"><a href="#how" class="menu-link delay-150">How it works</a></li>
+      <li class="overflow-hidden"><a href="#sources" class="menu-link delay-200">Sources</a></li>
+      <li class="overflow-hidden"><a href="#faq" class="menu-link delay-300">FAQ</a></li>
+      <li class="overflow-hidden pt-6"><a href="#join" class="menu-link delay-500 !text-brass">Join the launch list</a></li>
+    </ul>
+  </div>
+
+  <main id="main">
+    <!-- Hero: full-bleed Blender loop -->
+    <section id="top" class="hero relative isolate flex min-h-[100svh] items-end overflow-hidden md:items-center">
+      <div class="hero-media absolute inset-0 -z-10" aria-hidden="true">
+        <video class="hero-video h-full w-full object-cover" autoplay muted loop playsinline preload="auto" poster="assets/hero/poster.webp" disablepictureinpicture>
+          <source src="assets/hero/hero-960.mp4" type="video/mp4" media="(max-width: 767px)">
+          <source src="assets/hero/hero.webm" type="video/webm">
+          <source src="assets/hero/hero.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="hero-shade absolute inset-0 -z-10" aria-hidden="true"></div>
+
+      <div class="mx-auto w-full max-w-6xl px-6 pb-16 pt-32 md:pb-24">
+        <div class="max-w-[680px]">
+          <p class="reveal mb-6 flex items-center gap-3 text-sm font-medium text-cream/70">
+            <span lang="ar" dir="rtl" class="font-arabic text-xl text-brass">قنديل</span>
+            <span aria-hidden="true" class="h-1 w-1 rounded-full bg-cream/40"></span>
+            <span>Coming to iPhone and Android</span>
+          </p>
+          <h1 class="reveal hero-title text-4xl font-semibold tracking-tight sm:text-5xl md:text-6xl">
+            Your daily azkar,<br> without the noise
+          </h1>
+          <p class="reveal mt-6 text-lg text-cream/70 delay-100">
+            Qindeel puts your azkar, prayer times, Qibla and a verse for each day in one quiet app.
+            It works offline, asks for no account, and never shows an ad on a worship screen.
+          </p>
+
+          <div id="join" class="reveal mt-10 scroll-mt-24 delay-200"><form class="join-form" data-join novalidate aria-describedby="hero-note">
+            <div class="join-row" data-row>
+              <label for="hero-email" class="sr-only">Email address</label>
+              <input id="hero-email" name="email" type="email" inputmode="email" autocomplete="email" required placeholder="you@email.com" class="join-input" aria-describedby="hero-error">
+              <button type="submit" class="btn-primary join-btn">
+                <span data-label>Join the launch list</span>
+                <svg aria-hidden="true" focusable="false" class="shrink-0 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg>
+              </button>
+            </div>
+            <p id="hero-error" class="join-error" role="alert" hidden></p>
+            <div class="join-success" role="status" hidden>
+              <span class="chip !h-10 !w-10 shrink-0"><svg aria-hidden="true" focusable="false" class="shrink-0 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"/></svg></span>
+              <p><span class="font-semibold text-cream">You are on the list.</span> We will send one email with the store links on launch day.</p>
+            </div>
+            <p id="hero-note" class="join-note">One email on launch day. No spam, no sharing, unsubscribe in one tap.</p>
+          </form></div>
+
+          <ul class="reveal mt-10 flex flex-wrap gap-x-8 gap-y-4 text-sm text-cream/70 delay-300" aria-label="Highlights">
+            <li class="flex items-center gap-2"><svg aria-hidden="true" focusable="false" class="shrink-0 h-4 w-4 text-brass" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M232,48H160a40,40,0,0,0-32,16A40,40,0,0,0,96,48H24a8,8,0,0,0-8,8V200a8,8,0,0,0,8,8H96a24,24,0,0,1,24,24,8,8,0,0,0,16,0,24,24,0,0,1,24-24h72a8,8,0,0,0,8-8V56A8,8,0,0,0,232,48ZM96,192H32V64H96a24,24,0,0,1,24,24V200A39.81,39.81,0,0,0,96,192Zm128,0H160a39.81,39.81,0,0,0-24,8V88a24,24,0,0,1,24-24h64ZM160,88h40a8,8,0,0,1,0,16H160a8,8,0,0,1,0-16Zm48,40a8,8,0,0,1-8,8H160a8,8,0,0,1,0-16h40A8,8,0,0,1,208,128Zm0,32a8,8,0,0,1-8,8H160a8,8,0,0,1,0-16h40A8,8,0,0,1,208,160Z"/></svg> Full Hisn al-Muslim, 132 chapters</li>
+            <li class="flex items-center gap-2"><svg aria-hidden="true" focusable="false" class="shrink-0 h-4 w-4 text-brass" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M213.92,210.62a8,8,0,1,1-11.84,10.76l-52-57.15a60,60,0,0,0-57.41,7.24,8,8,0,1,1-9.42-12.93A75.43,75.43,0,0,1,128,144c1.28,0,2.55,0,3.82.1L104.9,114.49A108,108,0,0,0,61,135.31,8,8,0,0,1,49.73,134,8,8,0,0,1,51,122.77a124.27,124.27,0,0,1,41.71-21.66L69.37,75.4a155.43,155.43,0,0,0-40.29,24A8,8,0,0,1,18.92,87,171.87,171.87,0,0,1,58,62.86L42.08,45.38A8,8,0,1,1,53.92,34.62ZM128,192a12,12,0,1,0,12,12A12,12,0,0,0,128,192ZM237.08,87A172.3,172.3,0,0,0,106,49.4a8,8,0,1,0,2,15.87A158.33,158.33,0,0,1,128,64a156.25,156.25,0,0,1,98.92,35.37A8,8,0,0,0,237.08,87ZM195,135.31a8,8,0,0,0,11.24-1.3,8,8,0,0,0-1.3-11.24,124.25,124.25,0,0,0-51.73-24.2A8,8,0,1,0,150,114.24,108.12,108.12,0,0,1,195,135.31Z"/></svg> Works fully offline</li>
+            <li class="flex items-center gap-2"><svg aria-hidden="true" focusable="false" class="shrink-0 h-4 w-4 text-brass" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M247.15,212.42l-56-112a8,8,0,0,0-14.31,0l-21.71,43.43A88,88,0,0,1,108,126.93,103.65,103.65,0,0,0,135.69,64H160a8,8,0,0,0,0-16H104V32a8,8,0,0,0-16,0V48H32a8,8,0,0,0,0,16h87.63A87.76,87.76,0,0,1,96,116.35a87.74,87.74,0,0,1-19-31,8,8,0,1,0-15.08,5.34A103.63,103.63,0,0,0,84,127a87.55,87.55,0,0,1-52,17,8,8,0,0,0,0,16,103.46,103.46,0,0,0,64-22.08,104.18,104.18,0,0,0,51.44,21.31l-26.6,53.19a8,8,0,0,0,14.31,7.16L148.94,192h70.11l13.79,27.58A8,8,0,0,0,240,224a8,8,0,0,0,7.15-11.58ZM156.94,176,184,121.89,211.05,176Z"/></svg> Arabic and English</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problem to solution -->
+    <section class="border-y border-white/10 bg-black">
+      <div class="mx-auto grid max-w-6xl gap-12 px-6 py-24 md:grid-cols-2">
+        <div class="reveal">
+          <p class="eyebrow">Why we built it</p>
+          <h2 class="mt-4 text-4xl font-semibold tracking-tight">Worship deserves a quiet screen</h2>
+          <p class="mt-6 text-lg text-cream/70">
+            Many prayer apps place a banner under your dua, ask you to sign up before they show Fajr,
+            and go blank the moment the signal drops. Qindeel was built the other way around.
+          </p>
+        </div>
+        <ul class="flex flex-col gap-4">
+          <li class="reveal contrast-row">
+            <span class="contrast-icon"><svg aria-hidden="true" focusable="false" class="shrink-0 h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm88,104a87.56,87.56,0,0,1-20.41,56.28L71.72,60.4A88,88,0,0,1,216,128ZM40,128A87.56,87.56,0,0,1,60.41,71.72L184.28,195.6A88,88,0,0,1,40,128Z"/></svg></span>
+            <div><p class="font-semibold">No ads</p><p class="mt-1 text-cream/70">No banners, no videos, no ad tracking. Just your azkar.</p></div>
+          </li>
+          <li class="reveal contrast-row delay-100">
+            <span class="contrast-icon"><svg aria-hidden="true" focusable="false" class="shrink-0 h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M96.26,37A8,8,0,0,1,102,27.29a104.11,104.11,0,0,1,52,0,8,8,0,0,1-2,15.75,8.15,8.15,0,0,1-2-.26,88,88,0,0,0-44,0A8,8,0,0,1,96.26,37ZM33.35,110a8,8,0,0,0,9.85-5.57,87.88,87.88,0,0,1,22-38.09A8,8,0,0,0,53.8,55.14a103.92,103.92,0,0,0-26,45A8,8,0,0,0,33.35,110ZM150,213.22a88,88,0,0,1-44,0,8,8,0,0,0-4,15.49,104.11,104.11,0,0,0,52,0,8,8,0,0,0-4-15.49Zm62.8-108.77a8,8,0,0,0,15.42-4.28,104,104,0,0,0-26-45,8,8,0,1,0-11.41,11.21A88.14,88.14,0,0,1,212.79,104.45Zm15.44,51.39a103.68,103.68,0,0,1-30.68,49.47A8,8,0,0,1,185.07,203a64,64,0,0,0-114.14,0,8,8,0,0,1-12.48,2.32,103.74,103.74,0,0,1-30.68-49.49,8,8,0,0,1,15.42-4.27,87.58,87.58,0,0,0,19,34.88,79.57,79.57,0,0,1,36.1-28.77,48,48,0,1,1,59.38,0,79.57,79.57,0,0,1,36.1,28.77,87.58,87.58,0,0,0,19-34.88,8,8,0,1,1,15.42,4.28ZM128,152a32,32,0,1,0-32-32A32,32,0,0,0,128,152Z"/></svg></span>
+            <div><p class="font-semibold">No account, no tracking of your worship</p><p class="mt-1 text-cream/70">Your streak, counts and bookmarks live on your phone and nowhere else.</p></div>
+          </li>
+          <li class="reveal contrast-row delay-200">
+            <span class="contrast-icon"><svg aria-hidden="true" focusable="false" class="shrink-0 h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M213.92,210.62a8,8,0,1,1-11.84,10.76l-52-57.15a60,60,0,0,0-57.41,7.24,8,8,0,1,1-9.42-12.93A75.43,75.43,0,0,1,128,144c1.28,0,2.55,0,3.82.1L104.9,114.49A108,108,0,0,0,61,135.31,8,8,0,0,1,49.73,134,8,8,0,0,1,51,122.77a124.27,124.27,0,0,1,41.71-21.66L69.37,75.4a155.43,155.43,0,0,0-40.29,24A8,8,0,0,1,18.92,87,171.87,171.87,0,0,1,58,62.86L42.08,45.38A8,8,0,1,1,53.92,34.62ZM128,192a12,12,0,1,0,12,12A12,12,0,0,0,128,192ZM237.08,87A172.3,172.3,0,0,0,106,49.4a8,8,0,1,0,2,15.87A158.33,158.33,0,0,1,128,64a156.25,156.25,0,0,1,98.92,35.37A8,8,0,0,0,237.08,87ZM195,135.31a8,8,0,0,0,11.24-1.3,8,8,0,0,0-1.3-11.24,124.25,124.25,0,0,0-51.73-24.2A8,8,0,1,0,150,114.24,108.12,108.12,0,0,1,195,135.31Z"/></svg></span>
+            <div><p class="font-semibold">Everything works on a plane</p><p class="mt-1 text-cream/70">Azkar, the Mushaf, prayer times and Qibla are bundled inside the app.</p></div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="scroll-mt-24">
+      <div class="mx-auto max-w-6xl px-6 py-24">
+        <div class="reveal max-w-[680px]">
+          <p class="eyebrow">What is inside</p>
+          <h2 class="mt-4 text-4xl font-semibold tracking-tight md:text-5xl">Five small habits, one calm place</h2>
+        </div>
+
+        <div class="mt-16 grid gap-6 lg:grid-cols-2">
+          <article class="reveal card flex flex-col overflow-hidden">
+            <div class="p-8">
+              <span class="chip"><svg aria-hidden="true" focusable="false" class="shrink-0 h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M240,152H199.55a73.54,73.54,0,0,0,.45-8,72,72,0,0,0-144,0,73.54,73.54,0,0,0,.45,8H16a8,8,0,0,0,0,16H240a8,8,0,0,0,0-16ZM72,144a56,56,0,1,1,111.41,8H72.59A56.13,56.13,0,0,1,72,144Zm144,56a8,8,0,0,1-8,8H48a8,8,0,0,1,0-16H208A8,8,0,0,1,216,200ZM72.84,43.58a8,8,0,0,1,14.32-7.16l8,16a8,8,0,0,1-14.32,7.16Zm-56,48.84a8,8,0,0,1,10.74-3.57l16,8a8,8,0,0,1-7.16,14.31l-16-8A8,8,0,0,1,16.84,92.42Zm192,15.16a8,8,0,0,1,3.58-10.73l16-8a8,8,0,1,1,7.16,14.31l-16,8a8,8,0,0,1-10.74-3.58Zm-48-55.16,8-16a8,8,0,0,1,14.32,7.16l-8,16a8,8,0,1,1-14.32-7.16Z"/></svg></span>
+              <h3 class="mt-6 text-2xl font-semibold">Azkar you actually finish</h3>
+              <p class="mt-3 text-cream/70">Morning, evening, after prayer, sleep and waking sets. Tap anywhere to count; Qindeel moves to the next dhikr on its own and marks the set done for today.</p>
+            </div>
+            <div class="shot-crop"><img src="assets/en-dark-reader.png" width="390" height="844" loading="lazy" alt="Azkar reader showing Ayat al Kursi in fully voweled Arabic with its English meaning and a 1 of 23 counter" class="shot"></div>
+          </article>
+
+          <article class="reveal card flex flex-col overflow-hidden delay-100">
+            <div class="p-8">
+              <span class="chip"><svg aria-hidden="true" focusable="false" class="shrink-0 h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm64-88a8,8,0,0,1-8,8H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48A8,8,0,0,1,192,128Z"/></svg></span>
+              <h3 class="mt-6 text-2xl font-semibold">Prayer times that work on a plane</h3>
+              <p class="mt-3 text-cream/70">Pick your city by GPS or from 262 bundled cities. The calculation method follows your country, and you can switch it or your Asr madhab any time.</p>
+            </div>
+            <div class="shot-crop"><img src="assets/en-dark-prayer.png" width="390" height="844" loading="lazy" alt="Prayer screen listing Fajr, Sunrise, Dhuhr, Asr, Maghrib and Isha times for the selected city" class="shot"></div>
+          </article>
+        </div>
+
+        <div class="mt-6 grid gap-6 md:grid-cols-3">
+          <article class="reveal card flex flex-col overflow-hidden">
+            <div class="p-8">
+              <span class="chip"><svg aria-hidden="true" focusable="false" class="shrink-0 h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216ZM172.42,72.84l-64,32a8.05,8.05,0,0,0-3.58,3.58l-32,64A8,8,0,0,0,80,184a8.1,8.1,0,0,0,3.58-.84l64-32a8.05,8.05,0,0,0,3.58-3.58l32-64a8,8,0,0,0-10.74-10.74ZM138,138,97.89,158.11,118,118l40.15-20.07Z"/></svg></span>
+              <h3 class="mt-6 text-xl font-semibold">Qibla in seconds</h3>
+              <p class="mt-3 text-cream/70">A smoothed compass with a gentle buzz the moment you face the Kaaba.</p>
+            </div>
+            <div class="shot-crop shot-crop--sm"><img src="assets/en-dark-qibla.png" width="390" height="844" loading="lazy" alt="Qibla compass pointing toward the Kaaba" class="shot"></div>
+          </article>
+          <article class="reveal card flex flex-col overflow-hidden delay-100">
+            <div class="p-8">
+              <span class="chip"><svg aria-hidden="true" focusable="false" class="shrink-0 h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M56,76a60,60,0,0,1,120,0,8,8,0,0,1-16,0,44,44,0,0,0-88,0,8,8,0,1,1-16,0Zm140,44a27.9,27.9,0,0,0-13.36,3.39A28,28,0,0,0,144,106.7V76a28,28,0,0,0-56,0v80l-3.82-6.13a28,28,0,0,0-48.41,28.17l29.32,50A8,8,0,1,0,78.89,220L49.6,170a12,12,0,1,1,20.78-12l.14.23,18.68,30A8,8,0,0,0,104,184V76a12,12,0,0,1,24,0v68a8,8,0,1,0,16,0V132a12,12,0,0,1,24,0v20a8,8,0,0,0,16,0v-4a12,12,0,0,1,24,0v36c0,21.61-7.1,36.3-7.16,36.42a8,8,0,0,0,3.58,10.73A7.9,7.9,0,0,0,208,232a8,8,0,0,0,7.16-4.42c.37-.73,8.85-18,8.85-43.58V148A28,28,0,0,0,196,120Z"/></svg></span>
+              <h3 class="mt-6 text-xl font-semibold">A tasbeeh that keeps count</h3>
+              <p class="mt-3 text-cream/70">Targets of 33, 99, 100 or open ended, with today and lifetime totals.</p>
+            </div>
+            <div class="shot-crop shot-crop--sm"><img src="assets/en-dark-tasbeeh.png" width="390" height="844" loading="lazy" alt="Tasbeeh counter with a large tap target and preset phrases" class="shot"></div>
+          </article>
+          <article class="reveal card flex flex-col overflow-hidden delay-200">
+            <div class="p-8">
+              <span class="chip"><svg aria-hidden="true" focusable="false" class="shrink-0 h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M208,32H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM48,48H208v77.38l-24.69-24.7a16,16,0,0,0-22.62,0L53.37,208H48ZM208,208H76l96-96,36,36v60ZM96,120A24,24,0,1,0,72,96,24,24,0,0,0,96,120Zm0-32a8,8,0,1,1-8,8A8,8,0,0,1,96,88Z"/></svg></span>
+              <h3 class="mt-6 text-xl font-semibold">A verse for your lock screen</h3>
+              <p class="mt-3 text-cream/70">59 verses and 8 themes. Save today's as a wallpaper or share it.</p>
+            </div>
+            <div class="shot-crop shot-crop--sm"><img src="assets/en-dark-verse.png" width="390" height="844" loading="lazy" alt="Verse of the Day card showing Al Baqarah 2:152 with theme choices below" class="shot"></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tagline reveal -->
+    <section aria-label="Our promise" class="border-y border-white/10 bg-black">
+      <div class="mx-auto max-w-6xl px-6 py-24">
+        <p id="tagline" class="max-w-[680px] text-4xl font-semibold tracking-tight md:text-5xl lg:text-6xl">Wake with remembrance.<br>Pause for every prayer.<br>Rest with a light on.</p>
+        <p lang="ar" dir="rtl" class="reveal mt-12 w-max font-arabic text-3xl text-brass">نورٌ ليومك</p>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section id="how" class="scroll-mt-24">
+      <div class="mx-auto max-w-6xl px-6 py-24">
+        <div class="reveal max-w-[680px]">
+          <p class="eyebrow">How it works</p>
+          <h2 class="mt-4 text-4xl font-semibold tracking-tight md:text-5xl">Ready before your next prayer</h2>
+        </div>
+        <div class="mt-16 grid items-center gap-16 lg:grid-cols-[1fr_0.75fr]">
+        <ol class="grid gap-6">
+          <li class="reveal card p-8">
+            <span class="step">1</span>
+            <h3 class="mt-6 text-xl font-semibold">Choose your language</h3>
+            <p class="mt-3 text-cream/70">Arabic with true right to left layout, or English. Switch whenever you like.</p>
+          </li>
+          <li class="reveal card p-8 delay-100">
+            <span class="step">2</span>
+            <h3 class="mt-6 text-xl font-semibold">Set your city once</h3>
+            <p class="mt-3 text-cream/70">Use GPS or search the list. Your location is used for prayer times and stays on the device.</p>
+          </li>
+          <li class="reveal card p-8 delay-200">
+            <span class="step">3</span>
+            <h3 class="mt-6 text-xl font-semibold">Open Today</h3>
+            <p class="mt-3 text-cream/70">The next prayer, your azkar progress, your streak and today's verse are already waiting.</p>
+          </li>
+        </ol>
+        <figure class="reveal phone mx-auto w-full max-w-xs delay-200">
+          <img src="assets/en-dark-today.png" width="390" height="844" loading="lazy" alt="Qindeel Today screen showing a glowing lamp, the Hijri date, the next prayer countdown for Fajr and morning and evening azkar progress" class="block w-full rounded-2xl">
+        </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Proof / sources -->
+    <section id="sources" class="scroll-mt-24 border-y border-white/10 bg-black">
+      <div class="mx-auto grid max-w-6xl items-center gap-16 px-6 py-24 lg:grid-cols-[1fr_0.8fr]">
+        <div>
+          <div class="reveal">
+            <p class="eyebrow">Built on trusted texts</p>
+            <h2 class="mt-4 text-4xl font-semibold tracking-tight md:text-5xl">Every word is sourced, voweled and readable</h2>
+            <p class="mt-6 max-w-[680px] text-lg text-cream/70">Choose Naskh, Amiri or Scheherazade New and set the size that suits your eyes. Meanings in English sit right under each dhikr.</p>
+          </div>
+          <dl class="mt-12 grid grid-cols-2 gap-6">
+            <div class="reveal stat"><dt class="text-sm text-cream/70">Hisn al-Muslim chapters</dt><dd class="mt-2 text-4xl font-semibold text-brass">132</dd></div>
+            <div class="reveal stat delay-100"><dt class="text-sm text-cream/70">Madina Mushaf pages</dt><dd class="mt-2 text-4xl font-semibold text-brass">604</dd></div>
+            <div class="reveal stat delay-150"><dt class="text-sm text-cream/70">Cities available offline</dt><dd class="mt-2 text-4xl font-semibold text-brass">262</dd></div>
+            <div class="reveal stat delay-200"><dt class="text-sm text-cream/70">Accounts you need</dt><dd class="mt-2 text-4xl font-semibold text-brass">0</dd></div>
+          </dl>
+          <p class="reveal mt-8 text-sm text-cream/60">Azkar from Hisn al-Muslim. Verse text from Tanzil.net (Uthmani). Mushaf from the Madina Mushaf, used unmodified. Prayer times calculated on device with the open source adhan library.</p>
+        </div>
+        <figure class="reveal phone mx-auto w-full max-w-xs delay-200">
+          <img src="assets/ar-dark-today.png" width="390" height="844" loading="lazy" alt="The Today screen in Arabic with a right to left layout" class="block w-full rounded-2xl">
+          <figcaption class="px-2 pb-1 pt-3 text-center text-sm text-cream/60">Today, in Arabic</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="scroll-mt-24">
+      <div class="mx-auto max-w-3xl px-6 py-24">
+        <div class="reveal">
+          <p class="eyebrow">Questions</p>
+          <h2 class="mt-4 text-4xl font-semibold tracking-tight md:text-5xl">Before you join</h2>
+        </div>
+        <div class="mt-12 flex flex-col gap-3">
+          <div class="reveal faq-item" data-faq>
+            <h3>
+              <button type="button" class="faq-btn" aria-expanded="false" aria-controls="faq-0" id="faq-q-0">
+                <span>Is Qindeel free?</span>
+                <span class="faq-icon"><svg aria-hidden="true" focusable="false" class="shrink-0 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"/></svg></span>
+              </button>
+            </h3>
+            <div id="faq-0" role="region" aria-labelledby="faq-q-0" class="faq-panel">
+              <div class="overflow-hidden"><p class="px-6 pb-6 text-cream/70">Yes. Qindeel is free to download and every worship feature is free. All eight verse themes are included.</p></div>
+            </div>
+          </div>
+          <div class="reveal faq-item" data-faq>
+            <h3>
+              <button type="button" class="faq-btn" aria-expanded="false" aria-controls="faq-1" id="faq-q-1">
+                <span>Does Qindeel show ads?</span>
+                <span class="faq-icon"><svg aria-hidden="true" focusable="false" class="shrink-0 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"/></svg></span>
+              </button>
+            </h3>
+            <div id="faq-1" role="region" aria-labelledby="faq-q-1" class="faq-panel">
+              <div class="overflow-hidden"><p class="px-6 pb-6 text-cream/70">No. Qindeel has no ads and no ad tracking.</p></div>
+            </div>
+          </div>
+          <div class="reveal faq-item" data-faq>
+            <h3>
+              <button type="button" class="faq-btn" aria-expanded="false" aria-controls="faq-2" id="faq-q-2">
+                <span>Does it work without internet?</span>
+                <span class="faq-icon"><svg aria-hidden="true" focusable="false" class="shrink-0 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"/></svg></span>
+              </button>
+            </h3>
+            <div id="faq-2" role="region" aria-labelledby="faq-q-2" class="faq-panel">
+              <div class="overflow-hidden"><p class="px-6 pb-6 text-cream/70">Yes. Azkar, the Hisn al-Muslim library, verses, prayer times for 262 cities and the Qibla compass are bundled inside the app, so they work offline.</p></div>
+            </div>
+          </div>
+          <div class="reveal faq-item" data-faq>
+            <h3>
+              <button type="button" class="faq-btn" aria-expanded="false" aria-controls="faq-3" id="faq-q-3">
+                <span>Do I need to create an account?</span>
+                <span class="faq-icon"><svg aria-hidden="true" focusable="false" class="shrink-0 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"/></svg></span>
+              </button>
+            </h3>
+            <div id="faq-3" role="region" aria-labelledby="faq-q-3" class="faq-panel">
+              <div class="overflow-hidden"><p class="px-6 pb-6 text-cream/70">No. There is no sign up and no login. Your streak, counts, bookmarks and settings are saved on your phone.</p></div>
+            </div>
+          </div>
+          <div class="reveal faq-item" data-faq>
+            <h3>
+              <button type="button" class="faq-btn" aria-expanded="false" aria-controls="faq-4" id="faq-q-4">
+                <span>What happens to my location?</span>
+                <span class="faq-icon"><svg aria-hidden="true" focusable="false" class="shrink-0 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"/></svg></span>
+              </button>
+            </h3>
+            <div id="faq-4" role="region" aria-labelledby="faq-q-4" class="faq-panel">
+              <div class="overflow-hidden"><p class="px-6 pb-6 text-cream/70">Qindeel uses your approximate location only to calculate prayer times and the Qibla direction. It is stored on your device and never linked to you.</p></div>
+            </div>
+          </div>
+          <div class="reveal faq-item" data-faq>
+            <h3>
+              <button type="button" class="faq-btn" aria-expanded="false" aria-controls="faq-5" id="faq-q-5">
+                <span>Which prayer calculation methods are supported?</span>
+                <span class="faq-icon"><svg aria-hidden="true" focusable="false" class="shrink-0 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"/></svg></span>
+              </button>
+            </h3>
+            <div id="faq-5" role="region" aria-labelledby="faq-q-5" class="faq-panel">
+              <div class="overflow-hidden"><p class="px-6 pb-6 text-cream/70">Qindeel picks the common method for your country automatically using the adhan library. You can change the method and choose a Shafi’i or Hanafi Asr time in settings.</p></div>
+            </div>
+          </div>
+          <div class="reveal faq-item" data-faq>
+            <h3>
+              <button type="button" class="faq-btn" aria-expanded="false" aria-controls="faq-6" id="faq-q-6">
+                <span>Is the Arabic fully voweled?</span>
+                <span class="faq-icon"><svg aria-hidden="true" focusable="false" class="shrink-0 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"/></svg></span>
+              </button>
+            </h3>
+            <div id="faq-6" role="region" aria-labelledby="faq-q-6" class="faq-panel">
+              <div class="overflow-hidden"><p class="px-6 pb-6 text-cream/70">Yes. Every dhikr is fully voweled, and you can read it in Naskh, Amiri or Scheherazade New at the size you prefer, with the English meaning underneath.</p></div>
+            </div>
+          </div>
+          <div class="reveal faq-item" data-faq>
+            <h3>
+              <button type="button" class="faq-btn" aria-expanded="false" aria-controls="faq-7" id="faq-q-7">
+                <span>Does it include the full Quran?</span>
+                <span class="faq-icon"><svg aria-hidden="true" focusable="false" class="shrink-0 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"/></svg></span>
+              </button>
+            </h3>
+            <div id="faq-7" role="region" aria-labelledby="faq-q-7" class="faq-panel">
+              <div class="overflow-hidden"><p class="px-6 pb-6 text-cream/70">Yes. The complete Madina Mushaf is included as 604 real text pages with a Surah and Juz index, bookmarks and a reading position that is remembered for you.</p></div>
+            </div>
+          </div>
+          <div class="reveal faq-item" data-faq>
+            <h3>
+              <button type="button" class="faq-btn" aria-expanded="false" aria-controls="faq-8" id="faq-q-8">
+                <span>When and where does Qindeel launch?</span>
+                <span class="faq-icon"><svg aria-hidden="true" focusable="false" class="shrink-0 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"/></svg></span>
+              </button>
+            </h3>
+            <div id="faq-8" role="region" aria-labelledby="faq-q-8" class="faq-panel">
+              <div class="overflow-hidden"><p class="px-6 pb-6 text-cream/70">Qindeel is coming to iPhone and Android. Join the launch list and we will send you a single email with the store links on launch day.</p></div>
+            </div>
+          </div></div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="border-t border-white/10 bg-black">
+      <div class="mx-auto flex max-w-6xl flex-col items-center px-6 py-24 text-center">
+        <img src="assets/lamp.png" alt="" width="720" height="720" loading="lazy" class="lamp reveal w-40">
+        <h2 class="reveal hero-title mt-6 max-w-[680px] text-4xl font-semibold tracking-tight md:text-5xl">Your daily azkar,<br> without the noise</h2>
+        <p class="reveal mt-6 max-w-[680px] text-lg text-cream/70 delay-100">Free to download. No account. One email on launch day, then nothing else.</p>
+        <div class="reveal mt-10 w-full max-w-[680px] text-left delay-200"><form class="join-form" data-join novalidate aria-describedby="footer-note">
+            <div class="join-row" data-row>
+              <label for="footer-email" class="sr-only">Email address</label>
+              <input id="footer-email" name="email" type="email" inputmode="email" autocomplete="email" required placeholder="you@email.com" class="join-input" aria-describedby="footer-error">
+              <button type="submit" class="btn-primary join-btn">
+                <span data-label>Join the launch list</span>
+                <svg aria-hidden="true" focusable="false" class="shrink-0 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg>
+              </button>
+            </div>
+            <p id="footer-error" class="join-error" role="alert" hidden></p>
+            <div class="join-success" role="status" hidden>
+              <span class="chip !h-10 !w-10 shrink-0"><svg aria-hidden="true" focusable="false" class="shrink-0 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"/></svg></span>
+              <p><span class="font-semibold text-cream">You are on the list.</span> We will send one email with the store links on launch day.</p>
+            </div>
+            <p id="footer-note" class="join-note">One email on launch day. No spam, no sharing, unsubscribe in one tap.</p>
+          </form></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-white/10">
+    <div class="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-12 text-sm text-cream/60 md:flex-row md:items-center md:justify-between">
+      <div class="flex items-center gap-3">
+        <img src="assets/favicon.png" alt="" width="24" height="24" class="h-6 w-6 rounded-md">
+        <span>© <span data-year>2026</span> Qindeel</span>
+        <span lang="ar" dir="rtl" class="font-arabic text-base text-brass">قنديل</span>
+      </div>
+      <ul class="flex flex-wrap gap-6">
+        <li><a class="footer-link" href="privacy.html">Privacy policy</a></li>
+        <li><a class="footer-link" href="terms.html">Terms</a></li>
+        <li><a class="footer-link" href="#sources">Sources and attribution</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="main.js" defer></script>
+</body>
+</html>
